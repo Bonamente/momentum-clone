@@ -1,3 +1,5 @@
+import showGreeting from './greeting.js';
+
 const timeElement = document.querySelector('.time');
 const dateElement = document.querySelector('.date');
 
@@ -15,6 +17,7 @@ const showTime = () => {
   timeElement.textContent = currentTime;
 
   showDate(date);
+  showGreeting(date);
 
   setTimeout(showTime, 1000);
 };
