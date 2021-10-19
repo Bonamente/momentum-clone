@@ -131,6 +131,10 @@ body {
 
 .weather-error {
   margin-top: -10px;
+
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .description-container {
