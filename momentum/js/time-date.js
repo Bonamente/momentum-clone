@@ -1,4 +1,4 @@
-import showGreeting from './greeting.js';
+import { showGreeting } from './greeting.js';
 
 const timeElement = document.querySelector('.time');
 const dateElement = document.querySelector('.date');

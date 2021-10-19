@@ -14,7 +14,7 @@ const getLocalStorage = () => {
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
 
-const getTimeOfDay = (hours) => {
+export const getTimeOfDay = (hours) => {
   switch (hours) {
     case 6: 
     case 7:
@@ -45,12 +45,10 @@ const getTimeOfDay = (hours) => {
   }
 };
 
-const showGreeting = (date) => { 
+export const showGreeting = (date) => { 
   const hours = date.getHours();
   const timeOfDay = getTimeOfDay(hours);
   const greetingText = `Good ${timeOfDay}`;
 
   greetingElement.textContent = greetingText;
 };
-
-export default showGreeting;
