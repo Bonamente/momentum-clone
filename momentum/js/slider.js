@@ -1,15 +1,9 @@
 import { getTimeOfDay } from './greeting.js';
+import { getRandomNum } from './utils.js';
 
 const bodyElement = document.body;
 const slidePrevElement = document.querySelector('.slide-prev');
 const slideNextElement = document.querySelector('.slide-next');
-
-const getRandomNum = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
 
 let randomNum;
 randomNum = getRandomNum(1, 20);
