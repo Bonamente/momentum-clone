@@ -5,7 +5,7 @@ const weatherErrorElement = document.querySelector('.weather-error');
 const windElement = document.querySelector('.wind');
 const humidityElement = document.querySelector('.humidity');
 const cityElement = document.querySelector('.city');
-cityElement.value = 'Minsk';
+cityElement.value = localStorage.getItem('city') || 'Minsk';
 
 const setLocalStorage = () => {
   localStorage.setItem('city', cityElement.value);
@@ -21,7 +21,7 @@ window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
 
 const getWeather = async () => {
-  try {
+  try {    
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.value}&lang=en&appid=82b4be9951e608401e6001c3e4618245&units=metric`; 
     const res = await fetch(url);
     const data = await res.json();
@@ -50,6 +50,7 @@ const getWeather = async () => {
 
 const setCity = (e) => {
   if (e.code === 'Enter') {
+    setLocalStorage();  
     getWeather();
     cityElement.blur();
   }
