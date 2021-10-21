@@ -3,21 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link href="assets/favicon.ico" rel="shortcut icon" /> 
   <link rel="stylesheet" href="css/owfont-regular.css" />
+  <script src="https://kit.fontawesome.com/a062562745.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css" />
   <title>momentum</title>
 </head>
 <body>
   <header class="header">
+    <audio id="audio">
+      <source id="audio-source" src="" type="audio/mpeg"> 
+    </audio>
+        
     <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+      <div class="info">
+        <div class="title"></div>
+        <div class="time-container">
+          <div class="timer">00:00</div>
+          <div class="divider">/</div>  
+          <div class="duration">00:00</div>
+        </div>   
       </div>
+    
+      <div id="progress">
+        <div id="progress-bar"></div>
+      </div>
+    
+      <div class="controls">
+        <button class="play-prev">
+          <i class='fas fa-step-backward'></i>  
+        </button>
+    
+        <button class="play">
+          <i class='fas fa-play' id="play-icon"></i>
+          <i class='fas fa-pause hidden' id="pause-icon"></i> 
+        </button>
+    
+        <button class="play-next">
+          <i class='fas fa-step-forward'></i> 
+        </button>
+    
+        <button class="play-mute" id="toggleMute">    
+          <i class="fas fa-volume-up" id="volume-up-icon"></i>
+          <i class="fas fa-volume-mute hidden" id="volume-mute-icon"></i>   
+        </button>
+        
+        <div class="volume">
+          <input id="volume-input" type="range" min="0" max="1" step="0.01" value="0.5">
+        </div>
+      </div>
+    
       <ul class="play-list"></ul>
     </div>
+  
     <div class="weather">
       <input type="text" class="city" />
       <i class="weather-icon owf"></i>
@@ -49,6 +87,7 @@
       <div class="author"></div>
     </div>
   </footer>
-  <script type="module" src="js/script.js"></script>
+ 
+  <script type="module" src="js/script.js"></script> 
 </body>
 </html>
