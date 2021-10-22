@@ -11,11 +11,11 @@
 </head>
 <body>
   <header class="header">
-    <audio id="audio">
+    <!-- <audio id="audio">
       <source id="audio-source" src="" type="audio/mpeg"> 
-    </audio>
+    </audio> -->
         
-    <div class="player">
+    <div class="player show">
       <div class="info">
         <div class="title"></div>
         <div class="time-container">
@@ -56,7 +56,7 @@
       <ul class="play-list"></ul>
     </div>
   
-    <div class="weather">
+    <div class="weather show">
       <input type="text" class="city" />
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
@@ -73,19 +73,124 @@
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
     </div>
-    <time class="time"></time>
-    <date class="date"></date>
-    <div class="greeting-container">
+    <time class="time show"></time>
+    <date class="date show"></date>
+    <div class="greeting-container show">
       <span class="greeting"></span>
       <input type="text" class="name" placeholder="[Enter name]"/>
     </div>
   </main>
   <footer class="footer">
-    <button class="change-quote"></button>
-    <div>
-      <div class="quote"></div>
-      <div class="author"></div>
-    </div>
+		<div class="settings">
+			<div class="settings-wrapper menu-closed" id="menu" aria-labelledby="menu-label">
+				<div class="settings-menu">
+					<h2 class="settings-title">Settings</h2>
+					<ul class="settings-list">
+						<li class="settings-item settings-lang">
+							<p class="settings-item-name">Language</p>					
+						</li>
+		
+						<li class="settings-item settings-audio">
+							<p class="settings-item-name">Audio player</p>
+		
+							<label class="switch">
+								<input id="player" type="checkbox">
+								<span class="slider round"></span>
+							</label>
+						</li>
+		
+						<li class="settings-item settings-weather">
+							<p class="settings-item-name">Weather</p>
+		
+							<label class="switch">
+								<input id="weather" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>				
+						</li>
+		
+						<li class="settings-item settings-time">
+							<p class="settings-item-name">Time</p>
+							
+							<label class="switch">
+								<input id="time" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>		
+						</li>
+		
+						<li class="settings-item settings-date">
+							<p class="settings-item-name">Date</p>
+							
+							<label class="switch">
+								<input id="date" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>		
+						</li>
+		
+						<li class="settings-item settings-greetings">
+							<p class="settings-item-name">Greetings</p>
+							
+							<label class="switch">
+								<input id="greeting" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>		
+						</li>
+		
+						<li class="settings-item settings-quotes">
+							<p class="settings-item-name">Quotes</p>
+		
+							<label class="switch">
+								<input id="quotes" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>					
+						</li>
+		
+						<li class="settings-item settings-todo">
+							<p class="settings-item-name">Todo</p>
+		
+							<label class="switch">
+								<input id="todo" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>					
+						</li>
+						
+						<li class="settings-item settings-photo">
+							<p class="settings-item-name">Photos (<span class="settings-item-name-small">select your preferred photo source</span>)</p>
+							
+							<form class="settings-photo-from"	 id="photo-source">
+								<label>
+									GitHub
+									<input type="radio" name="photo-source" value="github" checked>
+								</label>
+	
+								<label>
+									Unsplash
+									<input type="radio" name="photo-source" value="unsplash">
+								</label>
+	
+								<label>
+									Flickr
+									<input type="radio" name="photo-source" value="flickr">
+								</label>
+	
+	
+								</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<button class="toggle" id="settings-toggle"	type="button" aria-labelledby="menu-label" aria-expanded="false">
+				<svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.274 340.274"><path d="M293.629 127.806l-5.795-13.739c19.846-44.856 18.53-46.189 14.676-50.08l-25.353-24.77-2.516-2.12h-2.937c-1.549 0-6.173 0-44.712 17.48l-14.184-5.719c-18.332-45.444-20.212-45.444-25.58-45.444h-35.765c-5.362 0-7.446-.006-24.448 45.606l-14.123 5.734C86.848 43.757 71.574 38.19 67.452 38.19l-3.381.105-27.27 26.737c-4.138 3.891-5.582 5.263 15.402 49.425l-5.774 13.691C0 146.097 0 147.838 0 153.33v35.068c0 5.501 0 7.44 46.585 24.127l5.773 13.667c-19.843 44.832-18.51 46.178-14.655 50.032l25.353 24.8 2.522 2.168h2.951c1.525 0 6.092 0 44.685-17.516l14.159 5.758c18.335 45.438 20.218 45.427 25.598 45.427h35.771c5.47 0 7.41 0 24.463-45.589l14.195-5.74c26.014 11 41.253 16.585 45.349 16.585l3.404-.096 27.479-26.901c3.909-3.945 5.278-5.309-15.589-49.288l5.734-13.702c46.496-17.967 46.496-19.853 46.496-25.221V151.88c-.005-5.519-.005-7.446-46.644-24.074zM170.128 228.474c-32.798 0-59.504-26.187-59.504-58.364 0-32.153 26.707-58.315 59.504-58.315 32.78 0 59.43 26.168 59.43 58.315-.006 32.177-26.656 58.364-59.43 58.364z" fill="#FFF"></path></svg>
+			</button>
+		</div>
+
+		<div class="quotes-container show">
+			<button class="change-quote"></button>
+			<div>
+				<div class="quote"></div>
+				<div class="author"></div>
+			</div>
+		</div>
   </footer>
  
   <script type="module" src="js/script.js"></script> 

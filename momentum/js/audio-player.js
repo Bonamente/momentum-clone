@@ -1,7 +1,5 @@
 import playList from './playList.js';
 
-const audioElement = document.getElementById('audio');
-const audioSourceElement = document.querySelector('#audio-source');
 const playListElement = document.querySelector('.play-list');
 const titleElement = document.querySelector('.title');
 
@@ -20,7 +18,9 @@ const playNextButton = document.querySelector('.play-next');
 const muteButton = document.querySelector('.play-mute');
 const volumeOn = document.querySelector('#volume-up-icon');
 const volumeMute = document.querySelector('#volume-mute-icon');
-     
+
+const audioElement = new Audio();
+
 let trackNum = 0;
 
 const createTrackElement = (index, title, duration) => {
@@ -94,8 +94,8 @@ const seek = (event) => {
   progressBar.style.width = `${percent * 100}%`;
 };
 
-const loadNewTrack = (index) => {  
-  audioSourceElement.src = playList[index].src;
+const loadNewTrack = (index) => { 
+  audioElement.src = playList[index].src;
   titleElement.textContent = playList[index].title;
 
   audioElement.load();
@@ -124,7 +124,7 @@ for (let i = 0; i < playListItems.length; i += 1){
   playListItems[i].addEventListener('click', getActiveElement);
 }
 
-audioSourceElement.src = playList[trackNum].src;
+audioElement.src = playList[trackNum].src;
 titleElement.textContent = playList[trackNum].title;
 audioElement.load();
 

@@ -24,7 +24,7 @@ export const getTimeOfDay = (hours) => {
 export const showGreeting = (date) => { 
   const hours = date.getHours();
   const timeOfDay = getTimeOfDay(hours);
-  const greetingText = `Good ${timeOfDay}`;
+  const greetingText = `Good ${timeOfDay},`;
 
   greetingElement.textContent = greetingText;
 };
