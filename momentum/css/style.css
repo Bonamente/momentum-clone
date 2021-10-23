@@ -421,27 +421,6 @@ input[type=range]::-webkit-slider-thumb:hover {
   min-height: 20px;
 }
 
-@media (max-width: 768px) {
-  .time {
-    min-height: 80px;
-    font-size: 72px;    
-  }
-
-  .greeting-container {
-    min-height: 40px;
-    font-size: 32px;
-  }
-
-  .greeting {
-    padding: 5px;
-  }
-
-  .name {
-    font-size: 32px;
-    padding: 5px;
-  }
-}
-
 .settings {
   position: relative;
   display: flex; 
@@ -470,7 +449,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 
 .settings-wrapper {
   position: absolute;
-  bottom: 35px;
+  bottom: 38px;
 
   width: 380px;
   height: 320px;
@@ -560,7 +539,7 @@ input[type=range]::-webkit-slider-thumb:hover {
   font-size: 14px;
 }
 
-.settings-photo-from {
+.settings-photo-form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -568,7 +547,7 @@ input[type=range]::-webkit-slider-thumb:hover {
   width: 100%;
 }
 
-.settings-photo-from label {
+.settings-photo-form label {
   display: flex;  
   margin-bottom: 12px;
   padding-right: 12px;
@@ -576,7 +555,7 @@ input[type=range]::-webkit-slider-thumb:hover {
   font-size: 14px;
 }
 
-.settings-photo-from label input {
+.settings-photo-form label input {
   margin-left: auto;
 }
 
@@ -599,8 +578,8 @@ input[type=range]::-webkit-slider-thumb:hover {
   right: 0;
   bottom: 0;
   background-color: rgba(255, 255, 255, 0.8);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -611,8 +590,8 @@ input[type=range]::-webkit-slider-thumb:hover {
   top: 3px;
   left: 1px;  
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -665,4 +644,247 @@ input[type='radio']:before {
 
 input[type='radio']:checked:before {
   background-color: #4cbf3f;
+}
+
+.lang-settings {
+  display: flex;
+  align-items: flex-end;
+
+  margin-left: 30px;
+}
+
+.switch-lang {
+  position: relative;
+  display: inline-block;  
+}
+
+.switch-lang > span {
+  position: absolute;
+  top: 11px;
+  pointer-events: none;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+  width: 50%;
+  text-align: center;
+}
+
+input.check-toggle-round-flat:checked ~ .off {
+  color: #F36F25;
+}
+
+input.check-toggle-round-flat:checked ~ .on {
+  color: #fff;
+}
+
+.switch-lang > span.on {
+  left: 0;
+  padding-left: 2px;
+  color: #F36F25;
+}
+
+.switch-lang > span.off {
+  right: 0;
+  padding-right: 4px;
+  color: #fff;
+}
+
+.check-toggle {
+  display: none;
+}
+
+.check-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.check-toggle-round-flat + label {
+  padding: 2px;
+  width: 98px;
+  height: 35px;
+  background-color: #F36F25;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+}
+
+input.check-toggle-round-flat + label:before, 
+input.check-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+
+input.check-toggle-round-flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #F36F25;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+}
+
+input.check-toggle-round-flat + label:after {
+  top: 4px;
+  left: 3px;
+  bottom: 4px;
+  width: 48px;
+  background-color: #fff;
+  -webkit-border-radius: 52px;
+  -moz-border-radius: 52px;
+  -ms-border-radius: 52px;
+  -o-border-radius: 52px;
+  border-radius: 52px;
+  -webkit-transition: margin 0.4s;
+  -moz-transition: margin 0.4s;
+  -o-transition: margin 0.4s;
+  transition: margin 0.4s;
+}
+
+input.check-toggle-round-flat:checked + label:after {
+  margin-left: 44px;
+}
+
+.settings-lang .switch-lang {
+  position: relative;
+  display: inline-block;  
+}
+
+.settings-lang .switch-lang > span {
+  position: absolute;
+  top: 11px;
+  pointer-events: none;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+  width: 50%;
+  text-align: center;
+}
+
+.settings-lang input.check-toggle-round-flat:checked ~ .off {
+  color: #4cbf3f;
+}
+
+.settings-lang input.check-toggle-round-flat:checked ~ .on {
+  color: #fff;
+}
+
+.settings-lang .switch-lang > span.on {
+  top: 6px;
+  left: 0;
+  padding-left: 0;
+  color: #4cbf3f;
+}
+
+.settings-lang .switch-lang > span.off {
+  top: 6px;
+  right: 0;
+  padding-right: 0;
+  color: #fff;
+}
+
+.settings-lang .check-toggle {
+  display: none;
+}
+
+.settings-lang .check-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.settings-lang input.check-toggle-round-flat + label {
+  padding: 2px;
+  width: 70px;
+  height: 25px;
+  background-color: #4cbf3f;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+}
+
+.settings-lang input.check-toggle-round-flat + label:before, 
+.settings-lang input.check-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+
+.settings-lang input.check-toggle-round-flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #4cbf3f;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.settings-lang input.check-toggle-round-flat + label:after {
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
+  width: 30px;
+  background-color: #fff;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-transition: margin 0.4s;
+  -moz-transition: margin 0.4s;
+  -o-transition: margin 0.4s;
+  transition: margin 0.4s;
+}
+
+.settings-lang input.check-toggle-round-flat:checked + label:after {
+  margin-left: 34px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .time {
+    min-height: 80px;
+    font-size: 72px;    
+  }
+
+  .greeting-container {
+    min-height: 40px;
+    font-size: 32px;
+  }
+
+  .greeting {
+    padding: 5px;
+  }
+
+  .name {
+    font-size: 32px;
+    padding: 5px;
+  }
 }

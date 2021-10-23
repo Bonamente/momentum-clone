@@ -3,23 +3,33 @@ import { showGreeting } from './greeting.js';
 const timeElement = document.querySelector('.time');
 const dateElement = document.querySelector('.date');
 
-const showDate = (date) => {
-  const options = { weekday: 'long', month: 'long', day: 'numeric' };
-  const currentDate = date.toLocaleDateString('en-US', options);
+export let timerId;
 
-  dateElement.textContent = currentDate;
+const showDate = (date, curLang) => {  
+  const options = (curLang === 'en') 
+    ? { weekday: 'long', month: 'long', day: 'numeric' }
+    : { weekday: 'long', day: 'numeric', month: 'long' };
+
+  const format = (curLang === 'en') ? 'en-US' : 'ru';
+
+  const currentDate = date.toLocaleDateString(`${format}`, options);
+  const dateToShow = (curLang === 'en') 
+    ? currentDate
+    : currentDate.charAt(0).toUpperCase() + currentDate.slice(1);
+
+  dateElement.textContent = dateToShow;
 };
 
-const showTime = () => {
+export const showTime = (state) => {
+  const { lang } = state;
+ 
   const date = new Date();
-  const currentTime = date.toLocaleTimeString();
+  const currentTime = date.toLocaleTimeString('ru'); 
 
   timeElement.textContent = currentTime;
 
-  showDate(date);
-  showGreeting(date);
+  showDate(date, lang);
+  showGreeting(date, lang);
 
-  setTimeout(showTime, 1000);
+  timerId = setTimeout(showTime, 1000, state);  
 };
-
-export default showTime;

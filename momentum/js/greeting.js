@@ -1,3 +1,5 @@
+import { contentTranslation } from './settings.js';
+
 const greetingElement = document.querySelector('.greeting');
 const nameElement = document.querySelector('.name');
 
@@ -21,10 +23,11 @@ export const getTimeOfDay = (hours) => {
   return timeOfDay;
 };
 
-export const showGreeting = (date) => { 
+export const showGreeting = (date, curLang) => { 
   const hours = date.getHours();
   const timeOfDay = getTimeOfDay(hours);
-  const greetingText = `Good ${timeOfDay},`;
 
-  greetingElement.textContent = greetingText;
+  const greetingText = contentTranslation.greeting[curLang][timeOfDay];
+  greetingElement.textContent = `${greetingText},`;
+  nameElement.placeholder = contentTranslation.greeting[curLang].placeholder;
 };

@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "textRu": "Самое сложное — это принять решение действовать. Остальное — всего лишь упорство",
+    "textEn": "The most difficult thing is the decision to act, the rest is merely tenacity.",
+    "authorRu": "Амелия Эрхарт",
+    "authorEn": "Amelia Earhart"
+  },
+  {
+    "id": 2,
+    "textRu": "Любопытство - начало мудрости",
+    "textEn": "Wonder is the beginning of wisdom.",
+    "authorRu": "Сократ",
+    "authorEn": "Socrates"
+  },
+  {
+    "id": 3,
+    "textRu": "Неисследованная жизнь не стоит того, чтобы жить",
+    "textEn": "An unexamined life is not worth living.",
+    "authorRu": "Сократ",
+    "authorEn": "Socrates"
+  },
+  {
+    "id": 4,
+    "textRu": "Ваше время ограничено, так что не тратьте его, проживая чью-то чужую жизнь.",
+    "textEn": "Your time is limited, so don’t waste it living someone else’s life.",
+    "authorRu": "Стив Джобс",
+    "authorEn": "Steve Jobs"
+  },
+  {
+    "id": 5,
+    "textRu": "Есть только один способ избежать критики — ничего не делать, ничего не говорить и быть никем.",
+    "textEn": "There is only one way to avoid criticism: do nothing, say nothing, and be nothing.",
+    "authorRu": "Аристотель",
+    "authorEn": "Aristotle"
+  },
+  {
+    "id": 6,
+    "textRu": "Красота есть во всем, но не всем дано это видеть.",
+    "textEn": "Everything has beauty, but not everyone can see.",
+    "authorRu": "Конфуций",
+    "authorEn": "Confucius"
+  },
+  {
+    "id": 7,
+    "textRu": "Знания не имеют никакой ценности, если их не применять на практике",
+    "textEn": "Knowledge is of no value unless you put it into practice.",
+    "authorRu": "Антон Чехов",
+    "authorEn": "Anton Chekhov"
+  },
+  {
+    "id": 8,
+    "textRu": "Неважно, насколько медленно вы идете, если не останавливаетесь.",
+    "textEn": "It does not matter how slowly you go as long as you do not stop.",
+    "authorRu": "Конфуций",
+    "authorEn": "Confucius"
+  },
+  {
+    "id": 9,
+    "textRu": "Секрет продвижения вперед - заключается в том, чтобы начать двигаться.",
+    "textEn": "The secret of getting ahead is getting started.",
+    "authorRu": "Марк Твен",
+    "authorEn": "Mark Twain"
+  },
+  {
+    "id": 10,
+    "textRu": "Единственный способ сделать отличную работу — любить то, что вы делаете.",
+    "textEn": "The only way to do great work is to love what you do.",
+    "authorRu": "Стив Джобс",
+    "authorEn": "Steve Jobs"
+  },
+  {
+    "id": 11,
+    "textRu": "Не волосы седые мудрым делают.",
+    "textEn": "Grey hairs are proof of age, but not of wisdom.",
+    "authorRu": "Менандр",
+    "authorEn": "Menander"
+  },
+  {
+    "id": 12,
+    "textRu": "Лучше в совершенстве выполнить небольшую часть дела, чем сделать плохо в десять раз более.",
+    "textEn": "Better to do a little than a great deal badly.",
+    "authorRu": "Сократ",
+    "authorEn": "Socrates"
+  },
+  {
+    "id": 13,
+    "textRu": "Юмор — величайшее благо человечества.",
+    "textEn": "Humor is mankind's greatest blessing.",
+    "authorRu": "Марк Твен",
+    "authorEn": "Mark Twain"
+  },
+  {
+    "id": 14,
+    "textRu": "Опыт — это то, что нельзя получить даром.",
+    "textEn": "Experience is one thing you can't get for nothing.",
+    "authorRu": "Оскар Уайльд",
+    "authorEn": "Oscar Wilde"
+  },
+  {
+    "id": 15,
+    "textRu": "Я знаю одно: я ничего не знаю. Это источник моей мудрости.",
+    "textEn": "One thing I know, that I know nothing. This is the source of my wisdom.",
+    "authorRu": "Сократ",
+    "authorEn": "Socrates"
+  },
+  {
+    "id": 16,
+    "textRu": "Мудрость перевешивает любые богатства.",
+    "textEn": "Wisdom outweighs any wealth.",
+    "authorRu": "Софокл",
+    "authorEn": "Sophocles"
+  },
+  {
+    "id": 17,
+    "textRu": "Успех зависит от усилий",
+    "textEn": "Success is dependent on effort.",
+    "authorRu": "Софокл",
+    "authorEn": "Sophocles"
+  }
+]

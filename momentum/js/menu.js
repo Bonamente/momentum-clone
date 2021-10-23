@@ -14,7 +14,7 @@ const closeMenu = () => {
 }
 
 document.addEventListener('click', (e) => { 
-  if (e.target.closest('.settings')) return;
+  if (e.target.closest('.settings') || e.target.closest('.switch-lang')) return;
   if (menuToggle !== e.target) closeMenu();
 });
 

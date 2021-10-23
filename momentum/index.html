@@ -10,11 +10,7 @@
   <title>momentum</title>
 </head>
 <body>
-  <header class="header">
-    <!-- <audio id="audio">
-      <source id="audio-source" src="" type="audio/mpeg"> 
-    </audio> -->
-        
+  <header class="header">       
     <div class="player show">
       <div class="info">
         <div class="title"></div>
@@ -75,7 +71,7 @@
     </div>
     <time class="time show"></time>
     <date class="date show"></date>
-    <div class="greeting-container show">
+    <div class="greeting-container show">	
       <span class="greeting"></span>
       <input type="text" class="name" placeholder="[Enter name]"/>
     </div>
@@ -84,14 +80,21 @@
 		<div class="settings">
 			<div class="settings-wrapper menu-closed" id="menu" aria-labelledby="menu-label">
 				<div class="settings-menu">
-					<h2 class="settings-title">Settings</h2>
+					<h2 class="settings-title" id="name-settings">Settings</h2>
 					<ul class="settings-list">
 						<li class="settings-item settings-lang">
-							<p class="settings-item-name">Language</p>					
+							<p class="settings-item-name" id="name-lang">Language</p>
+
+							<div class="switch-lang">
+								<input id="settings-language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+								<label for="language-toggle"></label>
+								<span class="on">EN</span>
+								<span class="off">RU</span>
+							</div>
 						</li>
 		
 						<li class="settings-item settings-audio">
-							<p class="settings-item-name">Audio player</p>
+							<p class="settings-item-name" id="name-audio">Audio player</p>
 		
 							<label class="switch">
 								<input id="player" type="checkbox">
@@ -100,7 +103,7 @@
 						</li>
 		
 						<li class="settings-item settings-weather">
-							<p class="settings-item-name">Weather</p>
+							<p class="settings-item-name" id="name-weather">Weather</p>
 		
 							<label class="switch">
 								<input id="weather" type="checkbox" checked>
@@ -109,7 +112,7 @@
 						</li>
 		
 						<li class="settings-item settings-time">
-							<p class="settings-item-name">Time</p>
+							<p class="settings-item-name" id="name-time">Time</p>
 							
 							<label class="switch">
 								<input id="time" type="checkbox" checked>
@@ -118,7 +121,7 @@
 						</li>
 		
 						<li class="settings-item settings-date">
-							<p class="settings-item-name">Date</p>
+							<p class="settings-item-name" id="name-date">Date</p>
 							
 							<label class="switch">
 								<input id="date" type="checkbox" checked>
@@ -127,7 +130,7 @@
 						</li>
 		
 						<li class="settings-item settings-greetings">
-							<p class="settings-item-name">Greetings</p>
+							<p class="settings-item-name" id="name-greeting">Greeting</p>
 							
 							<label class="switch">
 								<input id="greeting" type="checkbox" checked>
@@ -136,7 +139,7 @@
 						</li>
 		
 						<li class="settings-item settings-quotes">
-							<p class="settings-item-name">Quotes</p>
+							<p class="settings-item-name" id="name-quotes">Quotes</p>
 		
 							<label class="switch">
 								<input id="quotes" type="checkbox" checked>
@@ -145,7 +148,7 @@
 						</li>
 		
 						<li class="settings-item settings-todo">
-							<p class="settings-item-name">Todo</p>
+							<p class="settings-item-name" id="name-todo">Todo</p>
 		
 							<label class="switch">
 								<input id="todo" type="checkbox" checked>
@@ -154,9 +157,9 @@
 						</li>
 						
 						<li class="settings-item settings-photo">
-							<p class="settings-item-name">Photos (<span class="settings-item-name-small">select your preferred photo source</span>)</p>
+							<p class="settings-item-name" id="name-photo">Photos <span class="settings-item-name-small" id="name-photo-small">(select your preferred photo source)</span></p>
 							
-							<form class="settings-photo-from"	 id="photo-source">
+							<form class="settings-photo-form"	 id="photo-source">
 								<label>
 									GitHub
 									<input type="radio" name="photo-source" value="github" checked>
@@ -191,8 +194,17 @@
 				<div class="author"></div>
 			</div>
 		</div>
+
+		<div class="lang-settings">
+			<div class="switch-lang">
+				<input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">
+				<label for="language-toggle"></label>
+				<span class="on">EN</span>
+				<span class="off">RU</span>
+			</div>
+		</div>
   </footer>
  
-  <script type="module" src="js/script.js"></script> 
+	<script type="module" src="js/script.js"></script> 
 </body>
 </html>
