@@ -17,7 +17,7 @@ const elements = {
   date: document.querySelector('.date'),
   greeting: document.querySelector('.greeting-container'),
   quotes: document.querySelector('.quotes-container'),
-  // todo: document.querySelector('.todo-container'),
+  todo: document.querySelector('.todo-container'),
 };
 
 const inputs = {  
@@ -27,7 +27,7 @@ const inputs = {
   date: document.getElementById('date'),
   greeting: document.getElementById('greeting'),
   quotes: document.getElementById('quotes'),
-  //todo: document.getElementById('todo'),
+  todo: document.getElementById('todo'),
 };
 
 const settingNames = {
@@ -44,6 +44,15 @@ const settingNames = {
   photoSmall: document.getElementById('name-photo-small'),
 };
 
+const todoNames = {
+  title: document.getElementById('title-todo'),
+  add: document.getElementById('add-task-button'),
+  unfinished: document.getElementById('unfinished-title-todo'),
+  completed: document.getElementById('completed-title-todo'),
+  edit: document.querySelectorAll('.edit-todo'),
+  delete: document.querySelectorAll('.delete-todo'),
+};
+
 const state = {
   lang: 'en',  
   photoSource: 'github',
@@ -54,7 +63,7 @@ const state = {
     { name: 'quotes', isShow: true },
     { name: 'weather', isShow: true },
     { name: 'player', isShow: true },
-    // { name: 'todo', isShow: true },
+    { name: 'todo', isShow: true },
   ],
 };
 
@@ -134,6 +143,32 @@ export const contentTranslation = {
       en: ' (select your preferred photo source)',
       ru: ' (выберите источник фото)',
     },
+  },
+  todo: {
+    title: {
+      en: 'New Todo',
+      ru: 'Новая задача',
+    },
+    add: {
+      en: 'Add',
+      ru: 'Добавить',
+    },
+    unfinished: {
+      en: 'Todo list',
+      ru: 'Список задач',
+    },
+    completed: {
+      en: 'Completed',
+      ru: 'Завершённые',
+    },
+    edit: {
+      en: 'Edit',
+      ru: 'Изменить',
+    },
+    delete: {
+      en: 'Delete',
+      ru: 'Удалить',
+    },
   }
 };
 
@@ -155,6 +190,7 @@ window.addEventListener('load', getLocalStorage);
 
 const inputEntries = Object.entries(inputs);
 const settingEntries = Object.entries(settingNames);
+const todoEntries = Object.entries(todoNames);
 
 export const changeSettingsLang = (state) => {
   const { lang } = state;
@@ -164,6 +200,20 @@ export const changeSettingsLang = (state) => {
   }
 
   settingNames.photo.append(settingNames.photoSmall);
+};
+
+export const changeTodoLang = (state) => {
+  const { lang } = state;
+
+  for (const [name, el] of todoEntries) {
+    if (el instanceof NodeList) {
+      el.forEach((item) => {
+        item.textContent = contentTranslation.todo[name][lang];
+      })
+    }  
+    
+    el.textContent = contentTranslation.todo[name][lang];
+  }  
 };
 
 export const checkInputs = () => {
@@ -184,7 +234,7 @@ export const checkLangToggles = (currentState) => {
 };
 
 export const renderBlocks = () => {
-  currentState.pageBlocks.forEach((block) => {
+  currentState.pageBlocks.forEach((block) => {    
     if (block.isShow) {
       elements[block.name].classList.remove('hide');
       elements[block.name].classList.add('show');      
@@ -243,6 +293,7 @@ langToggle.addEventListener('change', ({ target }) => {
     getWeather(currentState);
     changeSettingsLang(currentState);
     translateQuote(currentState);
+    changeTodoLang(currentState);
   } else {
     currentState.lang = 'en';
     settingsLangToggle.checked = false;
@@ -255,7 +306,8 @@ langToggle.addEventListener('change', ({ target }) => {
     showTime(currentState);
     getWeather(currentState);
     changeSettingsLang(currentState);
-    translateQuote(currentState);   
+    translateQuote(currentState);
+    changeTodoLang(currentState); 
   }
 });
 
@@ -273,6 +325,7 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
     getWeather(currentState);
     changeSettingsLang(currentState);
     getQuote(currentState);
+    changeTodoLang(currentState);
   } else {
     currentState.lang = 'en';
     langToggle.checked = false;
@@ -285,6 +338,7 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
     showTime(currentState);
     getWeather(currentState);
     changeSettingsLang(currentState);
-    getQuote(currentState);   
+    getQuote(currentState);
+    changeTodoLang(currentState);  
   }
 });

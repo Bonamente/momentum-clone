@@ -873,7 +873,9 @@ input.check-toggle-round-flat:checked + label:after {
 
   display: flex; 
   align-items: flex-end;
-  padding-bottom: 3px;  
+  padding-bottom: 3px;
+
+  transition: all 0.5s linear;
 }
 
 .todo-toggle {
@@ -978,8 +980,10 @@ input.check-toggle-round-flat:checked + label:after {
 }
 
 #add-task-button {
-  width: 80px;
-  height: 30px;
+  width: unset;
+  min-width: 80px;
+  min-height: 30px;
+  padding: 0 5px;
 
   font-size: 16px;
   font-weight: 700;
