@@ -1,4 +1,11 @@
-import { checkLangToggles, checkInputs, renderBlocks, currentState, changeSettingsLang, changeTodoLang } from './settings.js';
+import { 
+  checkLangToggles,
+  checkInputs, 
+  renderBlocks, 
+  currentState, 
+  changeSettingsLang, 
+  changeTodoLang,
+} from './settings.js';
 import { showTime } from './time-date.js';
 import setBg from './slider.js';
 import getWeather from './weather.js';

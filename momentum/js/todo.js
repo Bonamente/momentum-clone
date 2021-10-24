@@ -1,3 +1,5 @@
+import { currentState } from './settings.js';
+
 const todo = document.getElementById('todo-wrapper');
 const todoToggle = document.getElementById('todo-toggle');
 
@@ -25,14 +27,23 @@ const createTask = (value) => {
 	const label = document.createElement('label');
 	const editInput = document.createElement('input');
 	const editButton = document.createElement('button');
-	const deleteButton = document.createElement('button');
+	const deleteButton = document.createElement('button'); 
+	const buttonsContainer = document.createElement('div');
+
+	buttonsContainer.classList.add('controls');	
 
 	checkBox.type = 'checkbox';
 	editInput.type = 'text';
 
-	editButton.textContent = 'Edit';
+	if (currentState.lang === 'en') {
+		editButton.textContent = 'Edit';
+		deleteButton.textContent = 'Delete';
+	} else {
+		editButton.textContent = 'Изменить';
+		deleteButton.textContent = 'Удалить';
+	}
+
 	editButton.className = 'edit';
-	deleteButton.textContent = 'Delete';
 	deleteButton.className = 'delete';
 
 	label.textContent = value;
@@ -40,8 +51,11 @@ const createTask = (value) => {
 	listItem.appendChild(checkBox);
 	listItem.appendChild(label);
 	listItem.appendChild(editInput);
-	listItem.appendChild(editButton);
-	listItem.appendChild(deleteButton);
+
+	buttonsContainer.appendChild(editButton);
+	buttonsContainer.appendChild(deleteButton)
+
+  listItem.appendChild(buttonsContainer);
 
 	return listItem;
 };
@@ -56,7 +70,7 @@ const addTask = () => {
 };
 
 const editTask = (e) => {
-	const listItem = e.target.parentNode;
+	const listItem = e.target.parentNode.parentNode;	
 
 	const editInput = listItem.querySelector('input[type=text]');
 	const label = listItem.querySelector('label');
@@ -73,7 +87,7 @@ const editTask = (e) => {
 };
 
 const deleteTask = (e) => {	
-	const listItem = e.target.parentNode;
+	const listItem = e.target.parentNode.parentNode;
 	const ul = listItem.parentNode;
 
 	ul.removeChild(listItem);

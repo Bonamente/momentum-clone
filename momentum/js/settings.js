@@ -174,14 +174,14 @@ export const contentTranslation = {
 
 export let currentState = JSON.parse(localStorage.getItem('state')) || state;
 
-const setLocalStorage = () => {
+const setLocalStorage = () => { 
   localStorage.setItem('state', JSON.stringify(currentState));
 };
 
 const getLocalStorage = () => {
   if (localStorage.getItem('state')) {
     const savedState = JSON.parse(localStorage.getItem('state'));
-    currentState = savedState;    
+    currentState = savedState;   
   }
 };
 

@@ -397,6 +397,19 @@ input[type=range]::-webkit-slider-thumb:hover {
   padding: 20px;
 }
 
+.left-bottom {
+  display: flex;  
+  align-items: flex-end;
+  min-width: 15%;
+}
+
+.right-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-width: 15%;
+}
+
 .quotes-container {
   display: flex;  
   flex-direction: column;
@@ -951,14 +964,10 @@ input.check-toggle-round-flat:checked + label:after {
   list-style-type: none;
 }
 
-.todo li * {
-	float: left;
-}
-
-.todo li,
-.todo h3 {
-	clear: both;
-	list-style: none;
+.todo li {
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .todo input,
@@ -1014,12 +1023,12 @@ input.check-toggle-round-flat:checked + label:after {
 	line-height: 18px;
 
 	border: 1px solid #dddddd;
-	background-color: #ffffff;
+	background-color:  rgba(255, 255, 255, 0.8);;
 	border-radius: 6px;
 }
 
 .todo input[type="text"]:focus {
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: #ffffff;
 }
 
 .todo label[for="new-task"] {
@@ -1041,33 +1050,41 @@ input.check-toggle-round-flat:checked + label:after {
 	border-bottom: 1px solid #eeeeee;
 }
 
-.todo li > input[type="checkbox"] {
-	margin: 0 10px;
-	position: relative;
-	top: 15px;
+.todo .controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-right: 10px;
 }
 
-.todo li > label {
+.todo li input[type="checkbox"] {
+  margin: 0;
+  margin-left: 10px;	
+	position: relative;
+}
+
+.todo li label {
 	font-size: 18px;
 	line-height: 40px;
 	width: 237px;
 	padding: 0 0 0 11px;
 }
 
-.todo li > input[type="text"] {
+.todo li input[type="text"] {
 	width: 226px;
 }
 
-.todo li > .edit,
-.todo li > .delete {
+.todo li .edit,
+.todo li .delete {
   font-weight: 700;
 }
 
-.todo li > .edit:hover {
+.todo li .edit:hover {
 	color: #ffff00;
 }
 
-.todo li > .delete:hover {
+.todo li .delete:hover {
 	color: #CF2323;
 }
 
