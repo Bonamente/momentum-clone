@@ -195,6 +195,41 @@
 			</div>
 		</div>
 
+		<div class="todo-container">
+			<div class="todo-wrapper todo-closed" id="todo-wrapper">
+				<div class="todo">
+					<h2>New Todo</h2>
+					<div class="new-task-container">
+						<input id="new-task" type="text">
+						<button id="add-task-button" type="button">Add</button>
+					</div>
+				
+					<h3>Todo list</h3>
+					<ul id="unfinished-tasks">
+						<li>
+							<input type="checkbox">
+							<label>Take a vacation</label><input type="text" value="Take a vacation">
+							<button class="edit">Edit</button>
+							<button class="delete">Delete</button>
+						</li>
+					</ul>
+				
+					<h3>Completed</h3>
+					<ul id="completed-tasks">
+						<li>
+							<input type="checkbox" checked>
+							<label>Create a clone of the Momentum</label>
+							<input type="text">
+							<button class="edit">Edit</button>
+							<button class="delete">Delete</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<button class="todo-toggle" id="todo-toggle" type="button">Todo</button>
+		</div>
+
 		<div class="lang-settings">
 			<div class="switch-lang">
 				<input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox">

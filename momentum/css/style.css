@@ -423,6 +423,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 
 .settings {
   position: relative;
+
   display: flex; 
   align-items: flex-end;
   padding-bottom: 3px;  
@@ -864,6 +865,246 @@ input.check-toggle-round-flat:checked + label:after {
 .settings-lang input.check-toggle-round-flat:checked + label:after {
   margin-left: 34px;
 }
+
+/* Todo */
+
+.todo-container {
+  position: relative;
+
+  display: flex; 
+  align-items: flex-end;
+  padding-bottom: 3px;  
+}
+
+.todo-toggle {
+  width: 50px;
+  height: 30px;
+  margin: 0;
+     
+  font-size: 21px;
+  color: #ffffff;
+
+  border: none;
+  background: none;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.todo-toggle:hover,
+.todo-toggle:focus {
+  opacity: 0.8;
+} 
+
+.todo-wrapper {
+  position: absolute;  
+  bottom: 38px; 
+
+  width: 380px;
+  height: 320px;
+  padding: 10px 5px;
+
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.todo-wrapper.todo-closed {
+  display: none;
+}
+
+.todo-wrapper.todo-opened {
+  visibility: visible;  
+  transform: translateX(-53%);
+}
+
+.todo {
+  height: 300px;
+  padding: 0 10px;
+
+  background-color: #000000;
+  
+  overflow-y: auto;
+}
+
+.todo::-webkit-scrollbar {
+  width: 7px;
+  background-color: #000000;
+}
+
+.todo::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color:  rgba(255, 255, 255, 0.5);
+}
+
+.todo h2 {
+	text-align: center;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+
+.todo ul {
+	margin: 0;
+	padding: 0;
+
+  list-style-type: none;
+}
+
+.todo li * {
+	float: left;
+}
+
+.todo li,
+.todo h3 {
+	clear: both;
+	list-style: none;
+}
+
+.todo input,
+.todo button {
+	outline: none;
+}
+
+.todo button {
+  width: 60px;
+	margin: 10px 0 0;
+
+  font-size: 14px;	
+	color: #ffffff;
+
+	background: none;
+	border: 0; 
+	
+	cursor: pointer;
+}
+
+#add-task-button {
+  width: 80px;
+  height: 30px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  background-color: #0FC57C;
+  border-radius: 20px;
+}
+
+#add-task-button:hover {
+  color: #000000;
+}
+
+.todo h3,
+.todo label[for="new-task"] {	
+	font-size: 15px;
+	border-bottom: 2px solid #333333;
+	padding: 25px 0 10px;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.todo input[type="text"] {
+	height: 28px;
+  margin: 0;
+	padding: 10px;
+	
+	font-size: 18px;
+	line-height: 18px;
+
+	border: 1px solid #dddddd;
+	background-color: #ffffff;
+	border-radius: 6px;
+}
+
+.todo input[type="text"]:focus {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.todo label[for="new-task"] {
+	display: block;
+	margin: 0 0 20px;
+}
+
+.todo input#new-task {	
+	width: 100%;
+}
+
+.todo p > button:hover {
+	color: #0FC57C;
+}
+
+.todo li {
+	overflow: hidden;
+	padding: 20px 0;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.todo li > input[type="checkbox"] {
+	margin: 0 10px;
+	position: relative;
+	top: 15px;
+}
+
+.todo li > label {
+	font-size: 18px;
+	line-height: 40px;
+	width: 237px;
+	padding: 0 0 0 11px;
+}
+
+.todo li > input[type="text"] {
+	width: 226px;
+}
+
+.todo li > .edit,
+.todo li > .delete {
+  font-weight: 700;
+}
+
+.todo li > .edit:hover {
+	color: #ffff00;
+}
+
+.todo li > .delete:hover {
+	color: #CF2323;
+}
+
+#completed-tasks label {
+	text-decoration: line-through;
+	color: #888888;
+}
+
+.todo ul li input[type="text"] {
+	display: none;
+}
+
+.todo ul li.editMode input[type="text"] {
+	display: block;
+}
+
+.todo ul li.editMode label {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

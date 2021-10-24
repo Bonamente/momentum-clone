@@ -5,6 +5,7 @@ import getWeather from './weather.js';
 import getQuote from './quotes.js';
 import './audio-player.js';
 import './menu.js';
+import './todo.js';
 
 checkInputs();
 checkLangToggles(currentState);
