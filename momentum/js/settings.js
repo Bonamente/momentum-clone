@@ -1,6 +1,7 @@
 import getWeather from './weather.js';
 import { timerId, showTime } from './time-date.js';
 import getQuote from './quotes.js';
+import setBg from './slider.js';
 
 const cityElement = document.querySelector('.city');
 
@@ -9,6 +10,11 @@ const settingsLangToggle = document.getElementById('settings-language-toggle');
 
 const quoteElement = document.querySelector('.quote');
 const authorElement = document.querySelector('.author');
+
+const githubInput = document.getElementById('github');
+const unsplashInput = document.getElementById('unsplash');
+const flickrInput = document.getElementById('flickr');
+const tagInput = document.getElementById('tag');
 
 const elements = {
   player: document.querySelector('.player'),
@@ -42,6 +48,9 @@ const settingNames = {
   todo: document.getElementById('name-todo'),
   photo: document.getElementById('name-photo'),
   photoSmall: document.getElementById('name-photo-small'),
+  tag: document.getElementById('name-tags'),
+  tagSmall: document.getElementById('name-tag-small'),
+  tagAnd: document.getElementById('name-and'),  
 };
 
 const todoNames = {
@@ -55,7 +64,8 @@ const todoNames = {
 
 const state = {
   lang: 'en',  
-  photoSource: 'github',
+  imgSource: 'github',  
+  imgTag: '',
   pageBlocks: [
     { name: 'time', isShow: true },
     { name: 'date', isShow: true },
@@ -81,6 +91,10 @@ export const contentTranslation = {
       en: 'Humidity:',
       ru: 'Влажность:',
     },
+    error: {
+      en: 'Invalid location. \n Please enter a correct city name.',
+      ru: 'Неверное значение. Пожалуйста, введите правильное название.',
+    }
   },
   greeting: {    
     en: {
@@ -143,6 +157,18 @@ export const contentTranslation = {
       en: ' (select your preferred photo source)',
       ru: ' (выберите источник фото)',
     },
+    tag: {
+      en: 'Tags',
+      ru: 'Теги',
+    },
+    tagSmall: {
+      en: 'available for',
+      ru: 'доступно для',
+    },
+    tagAnd: {
+      en: '&',
+      ru: 'и',
+    }   
   },
   todo: {
     title: {
@@ -220,6 +246,21 @@ export const checkInputs = () => {
   currentState.pageBlocks.forEach(({ name, isShow }) => {
     inputs[name].checked = isShow;
   })
+};
+
+export const checkTagInputs = (currentState) => {
+  const activeInput = currentState.imgSource;
+  const selectedTag = currentState.imgTag;
+
+  tagInput.value = selectedTag;
+
+  [githubInput, unsplashInput, flickrInput].forEach((input) => {
+    if (input.value === activeInput) {
+      input.checked = true;      
+    } else {
+      input.checked = false;
+    }
+  });
 };
 
 export const checkLangToggles = (currentState) => {
@@ -340,5 +381,24 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
     changeSettingsLang(currentState);
     getQuote(currentState);
     changeTodoLang(currentState);  
+  }
+});
+
+[githubInput, unsplashInput, flickrInput].forEach((input) => {
+  input.addEventListener('click', ({ target }) => {
+    if (target.checked) {
+      currentState.imgSource = target.value;
+      setLocalStorage(); 
+      setBg(currentState);
+    }
+  })
+});
+
+tagInput.addEventListener('keypress', (e) => {
+  if (e.code === 'Enter') {
+    currentState.imgTag = e.target.value;
+    setLocalStorage();  
+    setBg(currentState);
+    tagInput.blur();
   }
 });

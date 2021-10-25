@@ -149,9 +149,15 @@ const onTimeUpdate = () => {
 
     if (trackNum < playList.length - 1) {
       const index = parseInt(trackNum) + 1;
+
+      updateStylePlaylist(trackNum, index);
+
       loadNewTrack(index);
     } else {
-      trackNum = 0;
+      updateStylePlaylist(trackNum, 0);
+
+      trackNum = 0;    
+
       loadNewTrack(trackNum);
     }
   }

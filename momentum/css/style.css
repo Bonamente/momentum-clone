@@ -165,8 +165,7 @@ body {
 }
 
 .active-track { 
-  font-weight: bold;
-  opacity: 0.9;
+  font-weight: bold; 
 }
 
 .track-play-button {
@@ -192,6 +191,14 @@ body {
 
 .visible {
   display: block;
+}
+
+.active-track > .playlist-info-track,
+.active-track > .playlist-duration,
+.active-track > .track-play-button,
+.active-track > .track-play-button .fas {
+  color: #4cbf3f !important;
+  opacity: 1;
 }
 
 input[type=range]  {
@@ -533,8 +540,43 @@ input[type=range]::-webkit-slider-thumb:hover {
   border-bottom: 1px solid grey;
 }
 
+.settings-tags {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  border: none;
+}
+
+
+.settings-tags .tag-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.settings-tags label {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.settings-tags #tag {
+  display: block;
+  width: 45%;
+  padding: 5px;
+
+  border: none;
+  border-bottom: 1px solid #fff;
+
+  outline: none;
+}
+
 .settings-item-name {
   margin: 0;
+  margin-bottom: 5px;
 }
 
 .settings-photo {
@@ -545,7 +587,8 @@ input[type=range]::-webkit-slider-thumb:hover {
 .settings-photo .settings-item-name {
   width: 100%;
   margin-bottom: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 5px;  
+
   border-bottom: 1px solid grey;
 }
 
@@ -1105,30 +1148,7 @@ input.check-toggle-round-flat:checked + label:after {
 	display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Adaptive styles */
 
 @media (max-width: 768px) {
   .time {

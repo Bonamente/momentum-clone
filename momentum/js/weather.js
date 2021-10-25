@@ -31,7 +31,7 @@ const getWeather = async (state) => {
     const data = await res.json();
 
     if (res.status >= 400 && res.status <= 600) {
-      weatherErrorElement.textContent = 'Invalid location. \n Please enter a correct city name.';
+      weatherErrorElement.textContent = contentTranslation.weather.error[lang];
       weatherIconElement.className = 'weather-icon owf';
       temperatureElement.textContent = '';
       weatherDescriptionElement.textContent = '';

@@ -162,22 +162,28 @@
 								
 								<form class="settings-photo-form"	 id="photo-source">
 									<label>
-										GitHub
-										<input type="radio" name="photo-source" value="github" checked>
+										GitHub										
+										<input id="github" type="radio" name="photo-source" value="github" checked>
 									</label>
 		
 									<label>
 										Unsplash
-										<input type="radio" name="photo-source" value="unsplash">
+										<input id="unsplash" type="radio" name="photo-source" value="unsplash">
 									</label>
 		
 									<label>
 										Flickr
-										<input type="radio" name="photo-source" value="flickr">
-									</label>
-		
-		
+										<input id="flickr" type="radio" name="photo-source" value="flickr">
+									</label>		
 									</form>
+							</li>
+
+							<li class="settings-item settings-tags">
+								<p class="settings-item-name settings-item-name-small" id="name-tags">Tags</p>	
+								<div class="tag-wrapper">
+									<label for="tag"><span id="name-tag-small">available for</span> Unsplash <span id="name-and">&</span> Flickr:</label>
+									<input id="tag" type="text" name="tag" placeholder="mountains">	
+								</div>																
 							</li>
 						</ul>
 					</div>
