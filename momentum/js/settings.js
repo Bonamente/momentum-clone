@@ -26,7 +26,7 @@ const elements = {
   todo: document.querySelector('.todo-container'),
 };
 
-const inputs = {  
+const inputs = {
   player: document.getElementById('player'),
   weather: document.getElementById('weather'),
   time: document.getElementById('time'),
@@ -50,7 +50,7 @@ const settingNames = {
   photoSmall: document.getElementById('name-photo-small'),
   tag: document.getElementById('name-tags'),
   tagSmall: document.getElementById('name-tag-small'),
-  tagAnd: document.getElementById('name-and'),  
+  tagAnd: document.getElementById('name-and'),
 };
 
 const todoNames = {
@@ -63,8 +63,8 @@ const todoNames = {
 };
 
 const state = {
-  lang: 'en',  
-  imgSource: 'github',  
+  lang: 'en',
+  imgSource: 'github',
   imgTag: '',
   pageBlocks: [
     { name: 'time', isShow: true },
@@ -94,9 +94,9 @@ export const contentTranslation = {
     error: {
       en: 'Invalid location. \n Please enter a correct city name.',
       ru: 'Неверное значение. Пожалуйста, введите правильное название.',
-    }
+    },
   },
-  greeting: {    
+  greeting: {
     en: {
       night: 'Good night',
       morning: 'Good morning',
@@ -110,7 +110,7 @@ export const contentTranslation = {
       afternoon: 'Добрый день',
       evening: 'Добрый вечер',
       placeholder: '[Введите имя]',
-    }
+    },
   },
   settings: {
     title: {
@@ -168,7 +168,7 @@ export const contentTranslation = {
     tagAnd: {
       en: '&',
       ru: 'и',
-    }   
+    },
   },
   todo: {
     title: {
@@ -195,19 +195,19 @@ export const contentTranslation = {
       en: 'Delete',
       ru: 'Удалить',
     },
-  }
+  },
 };
 
 export let currentState = JSON.parse(localStorage.getItem('state')) || state;
 
-const setLocalStorage = () => { 
+const setLocalStorage = () => {
   localStorage.setItem('state', JSON.stringify(currentState));
 };
 
 const getLocalStorage = () => {
   if (localStorage.getItem('state')) {
     const savedState = JSON.parse(localStorage.getItem('state'));
-    currentState = savedState;   
+    currentState = savedState;
   }
 };
 
@@ -221,7 +221,7 @@ const todoEntries = Object.entries(todoNames);
 export const changeSettingsLang = (state) => {
   const { lang } = state;
 
-  for (const [name, el] of settingEntries) {   
+  for (const [name, el] of settingEntries) {
     el.textContent = contentTranslation.settings[name][lang];
   }
 
@@ -235,17 +235,17 @@ export const changeTodoLang = (state) => {
     if (el instanceof NodeList) {
       el.forEach((item) => {
         item.textContent = contentTranslation.todo[name][lang];
-      })
-    }  
-    
+      });
+    }
+
     el.textContent = contentTranslation.todo[name][lang];
-  }  
+  }
 };
 
 export const checkInputs = () => {
   currentState.pageBlocks.forEach(({ name, isShow }) => {
     inputs[name].checked = isShow;
-  })
+  });
 };
 
 export const checkTagInputs = (currentState) => {
@@ -256,7 +256,7 @@ export const checkTagInputs = (currentState) => {
 
   [githubInput, unsplashInput, flickrInput].forEach((input) => {
     if (input.value === activeInput) {
-      input.checked = true;      
+      input.checked = true;
     } else {
       input.checked = false;
     }
@@ -275,49 +275,51 @@ export const checkLangToggles = (currentState) => {
 };
 
 export const renderBlocks = () => {
-  currentState.pageBlocks.forEach((block) => {    
+  currentState.pageBlocks.forEach((block) => {
     if (block.isShow) {
       elements[block.name].classList.remove('hide');
-      elements[block.name].classList.add('show');      
+      elements[block.name].classList.add('show');
     } else {
       elements[block.name].classList.remove('show');
-      elements[block.name].classList.add('hide');      
-    }    
-  });     
+      elements[block.name].classList.add('hide');
+    }
+  });
 };
 
 const translateQuote = async (state) => {
   const { lang } = state;
 
   const quotes = 'js/data.json';
-  const res = await fetch(quotes, {mode: 'no-cors'});
+  const res = await fetch(quotes, { mode: 'no-cors' });
   const data = await res.json();
   const quoteId = quoteElement.getAttribute('data-quote');
-  const [ quote ] = data.filter((quote) => quote.id === +quoteId);  
+  const [quote] = data.filter((quote) => quote.id === +quoteId);
 
   if (lang === 'en') {
     quoteElement.textContent = `"${quote.textEn}"`;
-    authorElement.textContent = `${quote.authorEn}`; 
+    authorElement.textContent = `${quote.authorEn}`;
   } else {
     quoteElement.textContent = `"${quote.textRu}"`;
-    authorElement.textContent = `${quote.authorRu}`;  
-  }  
+    authorElement.textContent = `${quote.authorRu}`;
+  }
 };
 
 for (const [name, el] of inputEntries) {
-  el.addEventListener('change', ({ target }) => {    
-    const pageBlock = currentState.pageBlocks.find((el) => el.name == target.id);    
+  el.addEventListener('change', ({ target }) => {
+    const pageBlock = currentState.pageBlocks.find(
+      (el) => el.name == target.id
+    );
 
-    if (target.checked) {      
-      pageBlock.isShow = true;      
+    if (target.checked) {
+      pageBlock.isShow = true;
       setLocalStorage();
       renderBlocks();
     } else {
-      pageBlock.isShow = false;      
+      pageBlock.isShow = false;
       setLocalStorage();
       renderBlocks();
     }
-  })
+  });
 }
 
 langToggle.addEventListener('change', ({ target }) => {
@@ -328,7 +330,7 @@ langToggle.addEventListener('change', ({ target }) => {
     if (cityElement.value === 'Minsk') {
       cityElement.value = 'Минск';
     }
-  
+
     clearTimeout(timerId);
     showTime(currentState);
     getWeather(currentState);
@@ -338,7 +340,7 @@ langToggle.addEventListener('change', ({ target }) => {
   } else {
     currentState.lang = 'en';
     settingsLangToggle.checked = false;
-    
+
     if (cityElement.value === 'Минск') {
       cityElement.value = 'Minsk';
     }
@@ -348,7 +350,7 @@ langToggle.addEventListener('change', ({ target }) => {
     getWeather(currentState);
     changeSettingsLang(currentState);
     translateQuote(currentState);
-    changeTodoLang(currentState); 
+    changeTodoLang(currentState);
   }
 });
 
@@ -360,7 +362,7 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
     if (cityElement.value === 'Minsk') {
       cityElement.value = 'Минск';
     }
-  
+
     clearTimeout(timerId);
     showTime(currentState);
     getWeather(currentState);
@@ -370,7 +372,7 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
   } else {
     currentState.lang = 'en';
     langToggle.checked = false;
-    
+
     if (cityElement.value === 'Минск') {
       cityElement.value = 'Minsk';
     }
@@ -380,7 +382,7 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
     getWeather(currentState);
     changeSettingsLang(currentState);
     getQuote(currentState);
-    changeTodoLang(currentState);  
+    changeTodoLang(currentState);
   }
 });
 
@@ -388,16 +390,16 @@ settingsLangToggle.addEventListener('change', ({ target }) => {
   input.addEventListener('click', ({ target }) => {
     if (target.checked) {
       currentState.imgSource = target.value;
-      setLocalStorage(); 
+      setLocalStorage();
       setBg(currentState);
     }
-  })
+  });
 });
 
 tagInput.addEventListener('keypress', (e) => {
   if (e.code === 'Enter') {
     currentState.imgTag = e.target.value;
-    setLocalStorage();  
+    setLocalStorage();
     setBg(currentState);
     tagInput.blur();
   }

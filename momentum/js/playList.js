@@ -16,12 +16,6 @@ const playList = [
     src: './assets/sounds/Summer Wind.mp3',
     duration: '01:50'
   },
-
-  // {      
-  //   title: 'River Flows In You',
-  //   src: './assets/sounds/River Flows In You.mp3',
-  //   duration: '01:37'
-  // }, 
 ];
 
 export default playList;

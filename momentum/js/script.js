@@ -14,7 +14,6 @@ import getQuote from './quotes.js';
 import './audio-player.js';
 import './menu.js';
 import './todo.js';
-import './self-check.js';
 
 checkInputs();
 checkTagInputs(currentState);
