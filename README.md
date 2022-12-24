@@ -7,7 +7,7 @@ An analogue of the Google Chrome Momentum.
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=white)
 ![Flickr](https://img.shields.io/badge/Flickr-0063DC.svg?style=for-the-badge&logo=Flickr&logoColor=white)
 ![Unsplash](https://img.shields.io/badge/Unsplash-000000.svg?style=for-the-badge&logo=Unsplash&logoColor=white)
-![OpenWeatherMap](https://user-images.githubusercontent.com/47517329/209432381-ad15e4f2-84b9-43d6-9a3f-d46798aa9385.png)
+![OpenWeatherMap](https://user-images.githubusercontent.com/47517329/209432539-8cd0d3e5-ab1e-44fc-ba9a-3548d06f0a7c.png)
 
 ### Features:
 - clock and calendar 
